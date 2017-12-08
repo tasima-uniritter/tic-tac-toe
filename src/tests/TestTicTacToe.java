@@ -51,7 +51,7 @@ public class TestTicTacToe {
 	}
 	
 	@Test
-	public void testTemGanhadorNaLinha() {
+	public void testTemGanhadorNaColuna() {
 		// dado que o quadro tenha uma linha prenchida e todos elementos sao iguais
 		// quando eu verificar se é um vencedor
 		// entao mostro o vencedor
@@ -67,6 +67,26 @@ public class TestTicTacToe {
 		quadro.desenha(1,1,'X');
 		quadro.desenha(2,1,'X');
 		assertEquals(true, quadro.temGanhador());
+		
+	}
+	
+	@Test
+	public void testTemGanhadorNaLinha() {
+		// dado que o quadro tenha uma linha prenchida e todos elementos sao iguais
+		// quando eu verificar se é um vencedor
+		// entao mostro o vencedor
+		Quadro quadro = new Quadro(3,3);
+		quadro.desenha(0,0,'X'); // x x x
+		quadro.desenha(0,1,'X'); // - - -
+		quadro.desenha(0,2,'X'); // - - -
+		
+		assertEquals(true, quadro.temGanhador());
+		
+		quadro = new Quadro(3,3);
+		quadro.desenha(0,1,'X'); //  - x x
+		quadro.desenha(0,2,'X'); //  - - -
+  		quadro.desenha(2,1,'X'); //  - x -  
+		assertEquals(false, quadro.temGanhador());
 		
 	}
 
