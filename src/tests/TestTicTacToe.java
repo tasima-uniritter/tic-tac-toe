@@ -33,5 +33,19 @@ public class TestTicTacToe {
 		assertEquals(true,quadro.estaVazio());
 		
 	}
+	
+	@Test
+	public void testNaoTemGanhador() {
+		// dado que o quadro tenha uma linha prenchida e todos elementos sao iguais
+		// quando eu verificar se é um vencedor
+		// entao mostro o vencedor
+		Quadro quadro = new Quadro(3,3);		
+		
+		assertEquals(false,quadro.temGanhador());
+		
+	}
+	
+	
+	
 
 }

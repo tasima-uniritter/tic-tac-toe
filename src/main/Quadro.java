@@ -33,6 +33,14 @@ public class Quadro {
 		}
 		return vazio;
 	}
+
+	public boolean temGanhador() {
+		
+		
+		return false;
+	}
+	
+	
 	
 
 }
