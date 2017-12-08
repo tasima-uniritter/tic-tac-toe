@@ -4,16 +4,16 @@ public class Quadro {
 
 	private int linhas;
 	private int colunas;
-	private char [][] quadro;
+	private char[][] quadro;
 
 	public Quadro(int i, int j) {
 		linhas = i;
 		colunas = j;
 		quadro = new char[linhas][colunas];
-		for(int x = 0; x < linhas; x++){
-			for(int y = 0; y < colunas; y++){
+		for (int x = 0; x < linhas; x++) {
+			for (int y = 0; y < colunas; y++) {
 				quadro[x][y] = '-';
-					
+
 			}
 		}
 	}
@@ -24,9 +24,9 @@ public class Quadro {
 
 	public boolean estaVazio() {
 		boolean vazio = true;
-		for(int x = 0; x < linhas; x++){
-			for(int y = 0; y < colunas; y++){
-				if(quadro[x][y] != '-'){
+		for (int x = 0; x < linhas; x++) {
+			for (int y = 0; y < colunas; y++) {
+				if (quadro[x][y] != '-') {
 					vazio = false;
 				}
 			}
@@ -35,28 +35,28 @@ public class Quadro {
 	}
 
 	public boolean temGanhador() {
-		if(linhaPreenchida()){
+		if (linhaPreenchida()) {
 			return true;
 		}
-		
+
 		return false;
 	}
-	
-	public boolean linhaPreenchida(){
-		int pontoX= 0;
+
+	public boolean linhaPreenchida() {
+		int pontoX = 0;
 		int pontoO = 0;
-		for(int x = 0; x < linhas; x++){
-			if(quadro[x][0] == 'X'){
-				pontoX++;
-			}
-			if(quadro[x][0] == 'O'){
-				pontoO++;
+		for (int x = 0; x < linhas; x++) {
+			for (int y = 0; y < colunas; y++) {
+				if (quadro[x][y] == 'X') {
+					pontoX++;
+				}
+				if (quadro[x][y] == 'O') {
+					pontoO++;
+				}
 			}
 		}
-		return pontoX == linhas || pontoO == linhas ;
-		
-	
+		return pontoX == linhas || pontoO == linhas;
+
 	}
-	
 
 }
