@@ -35,12 +35,28 @@ public class Quadro {
 	}
 
 	public boolean temGanhador() {
-		
+		if(linhaPreenchida()){
+			return true;
+		}
 		
 		return false;
 	}
 	
+	public boolean linhaPreenchida(){
+		int pontoX= 0;
+		int pontoO = 0;
+		for(int x = 0; x < linhas; x++){
+			if(quadro[x][0] == 'X'){
+				pontoX++;
+			}
+			if(quadro[x][0] == 'O'){
+				pontoO++;
+			}
+		}
+		return pontoX == linhas || pontoO == linhas ;
+		
 	
+	}
 	
 
 }
