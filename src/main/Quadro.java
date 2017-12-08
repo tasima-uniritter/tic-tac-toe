@@ -35,7 +35,7 @@ public class Quadro {
 	}
 
 	public boolean temGanhador() {
-		if (colunaPreenchida() || linhaPreenchida()) {
+		if (colunaPreenchida() || linhaPreenchida() || diagonalPrincipalPreenchida()) {
 			return true;
 		}
 
@@ -61,7 +61,7 @@ public class Quadro {
 				return true;
 			}
 		}
-		return pontoX == linhas || pontoO == linhas;
+		return false;
 
 	}
 	
@@ -85,7 +85,30 @@ public class Quadro {
 				return true;
 			}
 		}
-		return pontoX == linhas || pontoO == linhas;
+		return false;
+
+	}
+	public boolean diagonalPrincipalPreenchida() {
+		int pontoX = 0;
+		int pontoO = 0;
+		
+		for (int linha = 0; linha < linhas; linha++) {				
+			for (int coluna = 0; coluna < colunas; coluna++) {
+				if(linha == coluna){
+					if (quadro[linha][coluna] == 'X') {
+						pontoX++;
+					}
+					if (quadro[linha][coluna] == 'O') {
+						pontoO++;
+					}
+				}
+				
+			}
+			if (pontoX == linhas || pontoO == linhas) {
+				return true;
+			}
+		}
+		return false;
 
 	}
 

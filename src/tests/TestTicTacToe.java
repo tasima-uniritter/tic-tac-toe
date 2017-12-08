@@ -89,6 +89,21 @@ public class TestTicTacToe {
 		assertEquals(false, quadro.temGanhador());
 		
 	}
+	
+	@Test
+	public void testDiagonalPrincipal() {
+		// dado que o quadro tenha uma linha prenchida e todos elementos sao iguais
+		// quando eu verificar se é um vencedor
+		// entao mostro o vencedor
+		Quadro quadro = new Quadro(3,3);
+		quadro.desenha(0,0,'X'); // x - -
+		quadro.desenha(1,1,'X'); // - x -
+		quadro.desenha(2,2,'X'); // - - X
+		
+		assertEquals(true, quadro.temGanhador());
+		
+		
+	}
 
 
 }
