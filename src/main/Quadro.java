@@ -45,14 +45,20 @@ public class Quadro {
 	public boolean linhaPreenchida() {
 		int pontoX = 0;
 		int pontoO = 0;
-		for (int x = 0; x < linhas; x++) {
-			for (int y = 0; y < colunas; y++) {
-				if (quadro[x][y] == 'X') {
+		
+		for (int coluna = 0; coluna < colunas; coluna++) {
+			pontoX = 0;
+			pontoO = 0;
+			for (int linha = 0; linha < linhas; linha++) {
+				if (quadro[linha][coluna] == 'X') {
 					pontoX++;
 				}
-				if (quadro[x][y] == 'O') {
+				if (quadro[linha][coluna] == 'O') {
 					pontoO++;
 				}
+			}
+			if (pontoX == linhas || pontoO == linhas) {
+				return true;
 			}
 		}
 		return pontoX == linhas || pontoO == linhas;

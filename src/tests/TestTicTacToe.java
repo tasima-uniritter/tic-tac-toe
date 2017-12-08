@@ -41,8 +41,13 @@ public class TestTicTacToe {
 		// entao mostro o vencedor
 		Quadro quadro = new Quadro(3,3);		
 		
-		assertEquals(false,quadro.temGanhador());
+		assertEquals(false, quadro.temGanhador());
 		
+		quadro.desenha(0,0,'X');
+		quadro.desenha(0,1,'X');
+		quadro.desenha(1,1,'X');
+
+		assertEquals(false ,quadro.temGanhador());
 	}
 	
 	@Test
@@ -59,9 +64,8 @@ public class TestTicTacToe {
 		
 		quadro = new Quadro(3,3);
 		quadro.desenha(0,1,'X');
+		quadro.desenha(1,1,'X');
 		quadro.desenha(2,1,'X');
-
-		quadro.desenha(2,2,'X');
 		assertEquals(true, quadro.temGanhador());
 		
 	}
