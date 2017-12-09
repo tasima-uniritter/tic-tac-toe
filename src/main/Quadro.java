@@ -35,7 +35,8 @@ public class Quadro {
 	}
 
 	public boolean temGanhador() {
-		if (colunaPreenchida() || linhaPreenchida() || diagonalPrincipalPreenchida()) {
+		if (colunaPreenchida() || linhaPreenchida() || diagonalPrincipalPreenchida()
+				|| diagonalSecundariaPreenchida()) {
 			return true;
 		}
 
@@ -45,7 +46,7 @@ public class Quadro {
 	public boolean colunaPreenchida() {
 		int pontoX = 0;
 		int pontoO = 0;
-		
+
 		for (int coluna = 0; coluna < colunas; coluna++) {
 			pontoX = 0;
 			pontoO = 0;
@@ -64,16 +65,16 @@ public class Quadro {
 		return false;
 
 	}
-	
+
 	public boolean linhaPreenchida() {
 		int pontoX = 0;
 		int pontoO = 0;
-		
+
 		for (int linha = 0; linha < linhas; linha++) {
-		
+
 			pontoX = 0;
 			pontoO = 0;
-			for (int coluna = 0; coluna < colunas; coluna++) {	
+			for (int coluna = 0; coluna < colunas; coluna++) {
 				if (quadro[linha][coluna] == 'X') {
 					pontoX++;
 				}
@@ -88,13 +89,15 @@ public class Quadro {
 		return false;
 
 	}
+
 	public boolean diagonalPrincipalPreenchida() {
 		int pontoX = 0;
 		int pontoO = 0;
-		
-		for (int linha = 0; linha < linhas; linha++) {				
-			for (int coluna = 0; coluna < colunas; coluna++) {
-				if(linha == coluna){
+
+		for (int linha = 0; linha < linhas; linha++) {
+			for (int coluna = colunas - 1; coluna > 0; coluna--) {
+
+				if (linha == coluna) {
 					if (quadro[linha][coluna] == 'X') {
 						pontoX++;
 					}
@@ -102,7 +105,7 @@ public class Quadro {
 						pontoO++;
 					}
 				}
-				
+
 			}
 			if (pontoX == linhas || pontoO == linhas) {
 				return true;
@@ -112,4 +115,26 @@ public class Quadro {
 
 	}
 
+	public boolean diagonalSecundariaPreenchida() {
+		int pontoX = 0;
+		int pontoO = 0;
+
+		for (int linha = 0; linha < linhas; linha++) {
+			for (int coluna = 0; coluna < colunas; coluna++) {
+				if ((linha == linhas -1 && coluna == 0) || (linha == coluna) || (linha == 0 && coluna == colunas -1)) {
+					if (quadro[linha][coluna] == 'X') {
+						pontoX++;
+					}
+					if (quadro[linha][coluna] == 'O') {
+						pontoO++;
+					}
+				}
+			}
+		}
+		if (pontoX == linhas || pontoO == linhas) {
+			return true;
+		}
+		return false;
+
+	}
 }

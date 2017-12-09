@@ -104,6 +104,21 @@ public class TestTicTacToe {
 		
 		
 	}
+	
+	@Test
+	public void testDiagonalSecundaria() {
+		// dado que o quadro tenha uma linha prenchida e todos elementos sao iguais
+		// quando eu verificar se é um vencedor
+		// entao mostro o vencedor
+		Quadro quadro = new Quadro(3,3);
+		quadro.desenha(0,1,'X'); // - x -
+		quadro.desenha(0,2,'X'); // - - x
+		quadro.desenha(1,1,'X'); // - x -
+		quadro.desenha(2,0,'X'); // x - -
+		quadro.desenha(2,2,'O'); // - - 0
+		
+		assertEquals(true, quadro.temGanhador());
+	}
 
 
 }
